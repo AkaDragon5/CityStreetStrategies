@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
 {
     public Action OnRoadPlacement, OnHousePlacement, OnSpecialPlacement, OnBigStructurePlacement;
     public Button placeRoadButton, placeHouseButton, placeSpecialButton, placeBigStructureButton;
-    public GameObject panel, startSimulation, endSimulation, panelData, spawnAgents, spawnCar, panelResult;
+    public GameObject panel, startSimulation, endSimulation, panelData, spawnAgents, spawnCar, panelResult, exitButton;
     public Color outlineColor;
 
     public Text countAgent, countCar, carsResult, agentsResult;
@@ -56,7 +56,7 @@ public class UIController : MonoBehaviour
     {
         countCar.text = aiDirector.GetComponent<AiDirector>().cars.ToString();
         countAgent.text = aiDirector.GetComponent<AiDirector>().agents.ToString();
-        
+
     }
 
     private void ModifyOutline(Button button)

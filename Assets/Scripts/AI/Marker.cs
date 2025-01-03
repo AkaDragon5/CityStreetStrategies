@@ -1,14 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace SimpleCity.AI
 {
+
     public class Marker : MonoBehaviour
     {
-        public Vector3 Position { get => transform.position;}
+        public Vector3 Position { get => transform.position; }
 
         public List<Marker> adjacentMarkers;
 
@@ -25,9 +29,11 @@ namespace SimpleCity.AI
             return new List<Vector3>(adjacentMarkers.Select(x => x.Position).ToList());
         }
 
+#if UNITY_EDITOR
+
         private void OnDrawGizmos()
         {
-            if(Selection.activeObject == gameObject)
+            if (Selection.activeObject == gameObject)
             {
                 Gizmos.color = Color.red;
                 if (adjacentMarkers.Count > 0)
@@ -40,6 +46,7 @@ namespace SimpleCity.AI
                 Gizmos.color = Color.white;
             }
         }
+#endif
     }
 
 }

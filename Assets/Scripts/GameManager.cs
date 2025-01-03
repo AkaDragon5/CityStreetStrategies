@@ -148,6 +148,7 @@ public class GameManager : MonoBehaviour
 
         uiController.panel.SetActive(false);
         uiController.startSimulation.SetActive(false);
+        uiController.exitButton.SetActive(false);
         uiController.endSimulation.SetActive(true);
         uiController.panelData.SetActive(true);
         uiController.spawnAgents.SetActive(true);
@@ -171,7 +172,7 @@ public class GameManager : MonoBehaviour
         carsAverangeTime = (float)Math.Round(carsAverangeTime, 2);
         if (!carsAverangeTime.Equals(float.NaN))
         {
-            uiController.carsResult.text = "Average arrival time of cars:  " + carsAverangeTime + " seconds";
+            uiController.carsResult.text = "Average arrival time of cars:  " + carsAverangeTime + " s";
 
         }
         else
@@ -184,7 +185,7 @@ public class GameManager : MonoBehaviour
         agentsAverangeTime = (float)Math.Round(agentsAverangeTime, 2);
         if (!agentsAverangeTime.Equals(float.NaN))
         {
-            uiController.agentsResult.text = "Average arrival time of pedestrian: " + agentsAverangeTime + " seconds";
+            uiController.agentsResult.text = "Average arrival time of pedestrian: " + agentsAverangeTime + " s";
 
         }
         else
@@ -199,12 +200,18 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+
 
     public void CloseResult()
     {
         uiController.panelResult.SetActive(false);
         uiController.panel.SetActive(true);
         uiController.startSimulation.SetActive(true);
+        uiController.exitButton.SetActive(true);
 
     }
 }
